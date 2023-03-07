@@ -61,7 +61,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (collision.gameObject.tag == "goal")
         {
-            Debug.Log("Contratulations you've won");
+            Debug.Log("Congratulations, you've won");
         }
 
     }
