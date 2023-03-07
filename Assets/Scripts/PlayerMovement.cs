@@ -49,23 +49,31 @@ public class PlayerMovement : MonoBehaviour
             moveSpeed = 1f;
         }
 
+
     }
 
-        void OnTriggerEnter2D(Collider2D collision)
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Platform")
         {
-            if (collision.gameObject.tag == "Platform")
-            {
-                isJumping = false;
-            }
+            isJumping = false;
         }
 
-        void OnTriggerExit2D(Collider2D collision)
+        if (collision.gameObject.tag == "goal")
         {
-            if (collision.gameObject.tag == "Platform")
-            {
-                isJumping = true;
-            }
+            Debug.Log("Contratulations you've won");
         }
+
+    }
+
+    void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Platform")
+        {
+            isJumping = true;
+        }
+    }
+
 
 
     
