@@ -8,7 +8,6 @@ public class PowerBullet : MonoBehaviour
     public float speed = 50f;
     public Rigidbody2D rb;
     public int damage = 40;
-    public GameObject powereffect;
     // Start is called before the first frame update
     void Start()
     {
