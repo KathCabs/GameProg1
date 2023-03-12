@@ -25,7 +25,7 @@ public class Bullet : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D bulletcollision)
     {
-        if (bulletcollision.gameObject.CompareTag("Enemy") || bulletcollision.gameObject.CompareTag("Ground"))
+        if (bulletcollision.gameObject.CompareTag("Enemy") || bulletcollision.gameObject.CompareTag("Wall")) 
         {
             Enemy enemy = bulletcollision.GetComponent<Enemy>();
 
