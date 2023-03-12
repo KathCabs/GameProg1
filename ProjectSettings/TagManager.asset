@@ -9,6 +9,7 @@ TagManager:
   - Enemy
   - Wall
   - Hell
+  - PowerUp
   layers:
   - Default
   - TransparentFX

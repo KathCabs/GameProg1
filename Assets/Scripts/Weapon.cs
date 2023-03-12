@@ -8,6 +8,10 @@ public class Weapon : MonoBehaviour
 
     public GameObject Playerbullet;
 
+    public GameObject Powerbullet;
+
+    public bool usingPowerbullet = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,12 +27,27 @@ public class Weapon : MonoBehaviour
         }
     }
 
+    public void onTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("PowerUp"))
+        {
+            usingPowerbullet = true;
+        }
+    }
+
     void Shoot()
     {
-        if (Playerbullet)
+        if (usingPowerbullet)
+        {
+            Instantiate(Powerbullet, firePoint.position, firePoint.rotation);
+        }
+
+        else
         {
             Instantiate(Playerbullet, firePoint.position, firePoint.rotation);
         }
+
     }
+
 
 }
