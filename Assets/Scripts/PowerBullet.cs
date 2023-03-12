@@ -23,7 +23,7 @@ public class PowerBullet : MonoBehaviour
     public void OnTriggerEnter2D(Collider2D hitInfo)
     {
 
-        if (hitInfo.gameObject.CompareTag("Enemy") || hitInfo.gameObject.CompareTag("Ground"))
+        if (hitInfo.gameObject.CompareTag("Enemy") || hitInfo.gameObject.CompareTag("Wall"))
         {
             Enemy enemy = hitInfo.GetComponent<Enemy>();
 
