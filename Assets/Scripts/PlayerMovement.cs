@@ -12,6 +12,10 @@ public class PlayerMovement : MonoBehaviour
     private float moveHorizontal;
     private float moveVertical;
 
+    public Animator animator;
+
+    public float speed = 15f;
+
     //forda double jump
     private int jumpsRemaining = 0;
     public int maxJumps = 2;
@@ -26,6 +30,10 @@ public class PlayerMovement : MonoBehaviour
         moveSpeed = 1f;
         jumpForce = 10f;
         isJumping = false;
+
+        jumpsRemaining = maxJumps;
+
+        animator = GetComponent<Animator>();
     }
 
     void Update() //movement
@@ -36,15 +44,29 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
+        /*
         if (moveHorizontal > 0.1f || moveHorizontal < -0.1f) //left or right movement
         {
-            rb2D.AddForce(new Vector2(moveHorizontal * moveSpeed, 0f), ForceMode2D.Impulse); //no need for delta time because it is applied in default in addforce
-                                                                                             //impulse makes the movement instantaneous
+            //rb2D.AddForce(new Vector2(moveHorizontal * moveSpeed, 0f), ForceMode2D.Impulse); //no need for delta time because it is applied in default in addforce
+            //impulse makes the movement instantaneous
+            
         }
-        if (!isJumping && moveVertical > 0.1f) //left or right movement. checking if the player is jumping
+        */
+        float horizontal = Input.GetAxisRaw("Horizontal");
+        animator.SetFloat("Speed", Mathf.Abs(moveHorizontal));
+        rb2D.velocity = new Vector2(horizontal * speed, rb2D.velocity.y);
+
+        /*if (!isJumping && moveVertical > 0.1f) //left or right movement. checking if the player is jumping
         {
             rb2D.AddForce(new Vector2(0f, moveVertical * jumpForce), ForceMode2D.Impulse);
 
+        }
+        */
+        if (Input.GetKeyDown(KeyCode.W) && jumpsRemaining > 0)
+        {
+            animator.SetBool("isJumping", true);
+            rb2D.velocity = new Vector2(rb2D.velocity.x, jumpForce);
+            jumpsRemaining--;
         }
 
         if (Input.GetKeyDown(KeyCode.LeftShift))
@@ -55,6 +77,7 @@ public class PlayerMovement : MonoBehaviour
         {
             moveSpeed = 1f;
         }
+
         //forda jump
         if (Input.GetKeyDown(KeyCode.W) && jumpsRemaining > 0)
         {
@@ -73,6 +96,8 @@ public class PlayerMovement : MonoBehaviour
         {
             Flip();
         }
+
+
 
     }
 
@@ -105,9 +130,13 @@ public class PlayerMovement : MonoBehaviour
         if (other.gameObject.CompareTag("Platform"))
         {
             jumpsRemaining = maxJumps;
-            //animator.SetBool("Jump", false);
+            animator.SetBool("isJumping", false);
         }
 
+        if (other.gameObject.tag == "goal")
+        {
+            CameraFollow.Instance.scenetomoveto();
+        }
     }
 
     void Flip()

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CameraFollow : MonoBehaviour
 {
@@ -32,11 +33,11 @@ public class CameraFollow : MonoBehaviour
         Vector3 newPos = new Vector3(target.position.x, target.position.y, -10f);
         transform.position = Vector3.Slerp(transform.position, newPos, followspeed * Time.deltaTime);
     }
-    /*
+    
     public void scenetomoveto()
     {
-        SceneManager.LoadScene("SceneB");
+        SceneManager.LoadScene("Finished");
     }
-    */
+    
 
 }
