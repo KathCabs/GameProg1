@@ -12,15 +12,15 @@ public class PowerUp : MonoBehaviour
         {
             Pickup();
         }
+
+
     }
-
-
-
 
     void Pickup()
     {
         Destroy(gameObject);
     }
+
 
 
 }

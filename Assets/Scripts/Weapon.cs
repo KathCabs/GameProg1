@@ -27,7 +27,7 @@ public class Weapon : MonoBehaviour
         }
     }
 
-    public void onTriggerEnter2D(Collider2D other)
+    public void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("PowerUp"))
         {
