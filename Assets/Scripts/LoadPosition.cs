@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class LoadPosition : MonoBehaviour
 {
+    private Vector3 startingPosition;
     // Start is called before the first frame update
     void Start()
     {
+        startingPosition = transform.position;
         float posX = PlayerPrefs.GetFloat("PosX", transform.position.x);
         float posY = PlayerPrefs.GetFloat("PosY", transform.position.y);
         transform.position = new Vector3(posX, posY, transform.position.z);
@@ -20,7 +22,10 @@ public class LoadPosition : MonoBehaviour
             float posX = PlayerPrefs.GetFloat("PosX", transform.position.x);
             float posY = PlayerPrefs.GetFloat("PosY", transform.position.y);
             transform.position = new Vector3(posX, posY, transform.position.z);
-            Debug.Log("Position loaded!");
+            if (transform.position != startingPosition)
+            {
+                Debug.Log("Position loaded!");
+            }
         }
     }
 }
