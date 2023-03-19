@@ -114,6 +114,8 @@ public class PlayerMovement : MonoBehaviour
         {
             playerRestart = transform.position;
         }
+
+
     }
 
     void OnTriggerExit2D(Collider2D collision)

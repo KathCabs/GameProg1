@@ -8,6 +8,7 @@ public class EnemyBulletScript : MonoBehaviour
     private GameObject player;
     private Rigidbody2D rb;
     public float force;
+    public float playerHealth = 30;
 
     private float timer;
     // Start is called before the first frame update

@@ -19,6 +19,7 @@ public class Reset : MonoBehaviour
             collision.gameObject.transform.position = playerRestart; //puts the player back to the initial position 
         }
 
+
     }
 
 
