@@ -10,7 +10,7 @@ public class AddScore : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         // Check if the colliding game object has a tag "Collectible"
-        if (collision.gameObject.CompareTag("Enemy") || )
+        if (collision.gameObject.CompareTag("Enemy"))
         {
             // Add 1 to score
             score += 1;
