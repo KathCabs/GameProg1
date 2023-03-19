@@ -34,7 +34,9 @@ public class PlayerMovement : MonoBehaviour
         jumpsRemaining = maxJumps;
 
         animator = GetComponent<Animator>();
+
     }
+
 
     void Update() //movement
     {
@@ -44,24 +46,11 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        /*
-        if (moveHorizontal > 0.1f || moveHorizontal < -0.1f) //left or right movement
-        {
-            //rb2D.AddForce(new Vector2(moveHorizontal * moveSpeed, 0f), ForceMode2D.Impulse); //no need for delta time because it is applied in default in addforce
-            //impulse makes the movement instantaneous
-            
-        }
-        */
+
         float horizontal = Input.GetAxisRaw("Horizontal");
         animator.SetFloat("Speed", Mathf.Abs(moveHorizontal));
         rb2D.velocity = new Vector2(horizontal * speed, rb2D.velocity.y);
 
-        /*if (!isJumping && moveVertical > 0.1f) //left or right movement. checking if the player is jumping
-        {
-            rb2D.AddForce(new Vector2(0f, moveVertical * jumpForce), ForceMode2D.Impulse);
-
-        }
-        */
         if (Input.GetKeyDown(KeyCode.W) && jumpsRemaining > 0)
         {
             animator.SetBool("isJumping", true);
@@ -96,8 +85,6 @@ public class PlayerMovement : MonoBehaviour
         {
             Flip();
         }
-
-
 
     }
 
@@ -137,6 +124,8 @@ public class PlayerMovement : MonoBehaviour
         {
             CameraFollow.Instance.scenetomoveto();
         }
+
+
     }
 
     void Flip()

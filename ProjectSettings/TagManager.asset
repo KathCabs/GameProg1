@@ -10,6 +10,8 @@ TagManager:
   - Wall
   - Hell
   - PowerUp
+  - spawn point
+  - Checkpoint
   layers:
   - Default
   - TransparentFX

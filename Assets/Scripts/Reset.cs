@@ -12,17 +12,14 @@ public class Reset : MonoBehaviour
         playerRestart = GameObject.FindGameObjectWithTag("Player").transform.position; //gets the initial position
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject.CompareTag("Player"))
         {
             collision.gameObject.transform.position = playerRestart; //puts the player back to the initial position 
         }
+
     }
+
+
 }
