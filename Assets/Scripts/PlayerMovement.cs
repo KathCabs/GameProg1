@@ -20,6 +20,8 @@ public class PlayerMovement : MonoBehaviour
     private int jumpsRemaining = 0;
     public int maxJumps = 2;
 
+    private Vector3 playerRestart;
+
     //isfacing
     private bool isFacingRight = true;
 
@@ -34,6 +36,9 @@ public class PlayerMovement : MonoBehaviour
         jumpsRemaining = maxJumps;
 
         animator = GetComponent<Animator>();
+
+        playerRestart = GameObject.FindGameObjectWithTag("Player").transform.position; //gets the initial position
+
 
     }
 
@@ -68,7 +73,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         //forda jump
-        if (Input.GetKeyDown(KeyCode.W) && jumpsRemaining > 0)
+        if (Input.GetKeyDown(KeyCode.Space) && jumpsRemaining > 0)
         {
             //animator.SetBool("Jump", true);
             rb2D.velocity = new Vector2(rb2D.velocity.x, jumpForce);
@@ -101,6 +106,14 @@ public class PlayerMovement : MonoBehaviour
             Debug.Log("Congratulations, you've won");
         }
 
+        if (collision.gameObject.CompareTag("Hell"))
+        {
+            transform.position = playerRestart;
+        }
+        else if(collision.tag == "Checkpoint")
+        {
+            playerRestart = transform.position;
+        }
     }
 
     void OnTriggerExit2D(Collider2D collision)
