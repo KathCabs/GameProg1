@@ -1219,6 +1219,8 @@ GameObject:
   - component: {fileID: 1483426640}
   - component: {fileID: 1483426638}
   - component: {fileID: 1483426641}
+  - component: {fileID: 1483426642}
+  - component: {fileID: 1483426643}
   m_Layer: 0
   m_Name: Player 2
   m_TagString: Player
@@ -1407,6 +1409,30 @@ MonoBehaviour:
   Playerbullet: {fileID: 5021385628375519464, guid: 301a5a7e84f409246bfc8513639e98bc, type: 3}
   Powerbullet: {fileID: 5397317746091514908, guid: 385741e559bc30f4a9cca89b9f70b821, type: 3}
   usingPowerbullet: 0
+--- !u!114 &1483426642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1483426633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 668a30763ecc8e74281d8eb5d7f149a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1483426643
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1483426633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1bcd4f59c7a5f749b8d9228cab85bf4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1493571899
 GameObject:
   m_ObjectHideFlags: 0
